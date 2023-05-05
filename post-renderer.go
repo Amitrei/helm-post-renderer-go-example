@@ -31,9 +31,7 @@ func main() {
 
 		if gKV.Kind == "Deployment" {
 			deployment := runtime.(*appsv1.Deployment)
-			annotations := map[string]string{}
-			annotations["bnhp.co.il/my-costum-annotation"] = "Hello!"
-
+			annotations := map[string]string{"bnhp.co.il/my-custom-annotation": "hello"}
 			deployment.GetObjectMeta().SetAnnotations(annotations)
 			printer.PrintObj(deployment, os.Stdout)
 
